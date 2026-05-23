@@ -10,3 +10,79 @@
 @import "./css/styles/style.css";
 @import "./css/colors/scheme-01.css";
 @import "./css/styles/coloring.css";
+
+/* 
+
+Hot Collections 
+
+*/
+
+.hotCollectionsCard {
+    max-width: 100%;
+    padding: 0 12px;
+}
+
+.slick-prev,
+.slick-next {
+  width: 40px !important;
+  height: 40px !important;
+}
+
+.slick-prev:before,
+.slick-next:before {
+    font-size: 40px !important;
+    color: black !important;
+    opacity: 0.9 !important;
+}
+
+.slick-prev {
+  left: -18px !important;
+}
+
+.slick-next {
+  right: -18px !important;
+}
+
+.nft_img_placeholder {
+  width: 100%;
+  height: 136px;
+  background-color: #e0e0e0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.author_img_placeholder {
+  width: 54px;
+  height: 54px;
+  background-color: #e0e0e0;
+  border-radius: 50%;
+  position: absolute;
+  top: -56px;
+  right: 8px;
+  border: 4px solid #fff;
+}
+
+.title_placeholder {
+  width: 50%;
+  height: 16px;
+  background-color: #e0e0e0;
+}
+
+.code_placeholder {
+  width: 40%;
+  height: 14px;
+  background-color: #e0e0e0;
+}
+
+.hotCollections__info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 8px;
+    gap: 6px;
+}
+
+
+
