@@ -4,6 +4,8 @@ import axios from "axios";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import NextArrow from "./NextArrow";
+import PrevArrow from "./PrevArrow";
 import HotCollectionsLoading from "./HotCollectionsLoading";
 
 const HotCollections = () => {
@@ -42,35 +44,7 @@ const HotCollections = () => {
     }
   }, [])
 
-  function NextArrow({ className, style, onClick }) {
-  return (
-    <div
-      className={className}
-      style={{
-        ...style,
-        display: "block",
-        zIndex: 1,
-      }}
-      onClick={onClick}
-    />
-  );
-}
-
-  function PrevArrow({ className, style, onClick }) {
-    return (
-      <div
-        className={className}
-        style={{
-          ...style,
-          display: "block",
-          zIndex: 1,
-        }}
-        onClick={onClick}
-      />
-    )
-  }
-
-  function HotCollectionsCarousel() {
+  function hotCollectionsCarousel() {
     const settings = {
       infinite: true,
       slidesToShow: slidesToShow,
@@ -84,7 +58,7 @@ const HotCollections = () => {
 
     return (
       <div className="slider-container">
-        <Slider key={hotCollectionsArr.length > 0 ? "loaded" : "loading"} {...settings}>
+        <Slider {...settings}>
           {hotCollectionsArr.length > 0 ? hotCollectionsArr.map((elem) => (
             <div className="hotCollectionsCard" key={elem.id}>
               <div className="nft_coll">
@@ -127,7 +101,7 @@ const HotCollections = () => {
               <div className="small-border bg-color-2"></div>
             </div>
           </div>
-          {HotCollectionsCarousel()}
+          {hotCollectionsCarousel()}
         </div>
       </div>
     </section>
