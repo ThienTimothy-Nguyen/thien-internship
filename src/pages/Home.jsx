@@ -3,7 +3,7 @@ import BrowseByCategory from "../components/home/BrowseByCategory";
 import HotCollections from "../components/home/HotCollections/HotCollections";
 import Landing from "../components/home/Landing";
 import LandingIntro from "../components/home/LandingIntro";
-import NewItems from "../components/home/NewItems";
+import NewItems from "../components/home/NewItem/NewItems";
 import TopSellers from "../components/home/TopSellers";
 
 const Home = () => {

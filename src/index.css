@@ -13,34 +13,27 @@
 
 /* 
 
-Hot Collections 
+Hot Collections && New Items Carousel custom styles
 
 */
 
-.hotCollectionsCard {
+.hotCollectionsCard,
+.newItemsCard {
     max-width: 100%;
     padding: 0 12px;
 }
 
 .slick-prev,
 .slick-next {
-  width: 40px !important;
-  height: 40px !important;
+  width: 32px !important;
+  height: 32px !important;
 }
 
 .slick-prev:before,
 .slick-next:before {
-    font-size: 40px !important;
+    font-size: 32px !important;
     color: black !important;
     opacity: 0.9 !important;
-}
-
-.slick-prev {
-  left: -18px !important;
-}
-
-.slick-next {
-  right: -18px !important;
 }
 
 .nft_img_placeholder {
@@ -83,6 +76,30 @@ Hot Collections
     margin-top: 8px;
     gap: 6px;
 }
+
+.nft__item_preview {
+    max-width: 312px;
+}
+
+.nft_image__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.author_list_pp--placeholder {
+    background-color: #e0e0e0;
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+}
+
+.nft__item_wrap--placeholder {
+    background-color: #e0e0e0;
+    margin-bottom: 16px;
+}
+
+
 
 
 
