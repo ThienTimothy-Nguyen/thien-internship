@@ -1,26 +1,29 @@
-import { useEffect, useState } from 'react';
+import { clear } from '@testing-library/user-event/dist/clear';
+import { useEffect, useRef, useState } from 'react';
 
 function NewItemsCountdown({ expiryDate }) {
-    const [hourCountDown, setHourCountdown] = useState(0);
-    const [minuteCountDown, setMinuteCountdown] = useState(0);
-    const [secondCountDown, setSecondCountdown] = useState(0);
-
-    function runTimer() {
-        displayTimeRemaining()
-        requestAnimationFrame(runTimer)
-    }
+    const [timeCountDown, setTimeCountdown] = useState({hours: 0, minutes: 0, seconds: 0});
+    const intervalRef = useRef(null);
 
     useEffect(() => {
-        requestAnimationFrame(runTimer)
-    }, [])
+        displayTimeRemaining();
+        intervalRef.current = setInterval(displayTimeRemaining, 1000);
+
+        return () => {
+            if (intervalRef.current) {
+                clearInterval(intervalRef.current);
+            }
+        };
+    }, [expiryDate]);
 
     function displayTimeRemaining() {
         const currentTime = Date.now()
         let timeRemaining = expiryDate - currentTime;
-        if (timeRemaining < 0) {
-            setHourCountdown(0)
-            setMinuteCountdown(0)
-            setSecondCountdown(0)
+
+        if (timeRemaining <= 0) {
+            setTimeCountdown({hours: 0, minutes: 0, seconds: 0})
+            clearInterval(intervalRef.current)
+            intervalRef.current = null
             return
         }
 
@@ -28,14 +31,17 @@ function NewItemsCountdown({ expiryDate }) {
         let elapsedMinutes = Math.floor(elapsedSeconds / 60)
         let elapsedHours = Math.floor(elapsedMinutes / 60)
         
-        setHourCountdown(elapsedHours % 24)
-        setMinuteCountdown(elapsedMinutes % 60)
-        setSecondCountdown(elapsedSeconds % 60)
+        setTimeCountdown({
+            hours: elapsedHours % 24,
+            minutes: elapsedMinutes % 60,
+            seconds: elapsedSeconds % 60
+        });
     }
     
   return (
-    <div>
-        {hourCountDown}h {minuteCountDown}m {secondCountDown}s
+    (timeCountDown.hours === 0 && timeCountDown.minutes === 0 && timeCountDown.seconds === 0) ? <></> :
+    <div className="de_countdown">
+        {timeCountDown.hours}h {timeCountDown.minutes}m {timeCountDown.seconds}s
     </div>
   )
 }

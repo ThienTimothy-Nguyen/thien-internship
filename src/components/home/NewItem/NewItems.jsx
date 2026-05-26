@@ -76,7 +76,7 @@ const NewItems = () => {
                     <i className="fa fa-check"></i>
                   </Link>
                 </div>
-                {item.expiryDate && <div className="de_countdown"><NewItemsCountdown expiryDate={item.expiryDate} /></div>}
+                {item.expiryDate && <NewItemsCountdown expiryDate={item.expiryDate} />}
 
                 <div className="nft__item_wrap">
                   <div className="nft__item_extra">
