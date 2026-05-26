@@ -1,22 +1,11 @@
-import { clear } from '@testing-library/user-event/dist/clear';
 import { useEffect, useRef, useState } from 'react';
 
-function NewItemsCountdown({ expiryDate }) {
+function ItemCountdown({ expiryDate }) {
     const [timeCountDown, setTimeCountdown] = useState({hours: 0, minutes: 0, seconds: 0});
     const intervalRef = useRef(null);
 
     useEffect(() => {
-        displayTimeRemaining();
-        intervalRef.current = setInterval(displayTimeRemaining, 1000);
-
-        return () => {
-            if (intervalRef.current) {
-                clearInterval(intervalRef.current);
-            }
-        };
-    }, [expiryDate]);
-
-    function displayTimeRemaining() {
+        function displayTimeRemaining() {
         const currentTime = Date.now()
         let timeRemaining = expiryDate - currentTime;
 
@@ -36,7 +25,16 @@ function NewItemsCountdown({ expiryDate }) {
             minutes: elapsedMinutes % 60,
             seconds: elapsedSeconds % 60
         });
-    }
+        }
+        displayTimeRemaining();
+        intervalRef.current = setInterval(displayTimeRemaining, 1000);
+
+        return () => {
+            if (intervalRef.current) {
+                clearInterval(intervalRef.current);
+            }
+        };
+    }, [expiryDate]);
     
   return (
     (timeCountDown.hours === 0 && timeCountDown.minutes === 0 && timeCountDown.seconds === 0) ? <></> :
@@ -46,4 +44,4 @@ function NewItemsCountdown({ expiryDate }) {
   )
 }
 
-export default NewItemsCountdown
+export default ItemCountdown
