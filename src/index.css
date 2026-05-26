@@ -13,7 +13,7 @@
 
 /* 
 
-Hot Collections && New Items Carousel custom styles
+Hot Collections && New Items && Top Sellers custom styles
 
 */
 
@@ -57,13 +57,14 @@ Hot Collections && New Items Carousel custom styles
 }
 
 .title_placeholder {
-  width: 50%;
-  height: 16px;
+  width: 60%;
+  height: 14px;
   background-color: #e0e0e0;
+  margin-bottom: 4px;
 }
 
 .code_placeholder {
-  width: 40%;
+  width: 46%;
   height: 14px;
   background-color: #e0e0e0;
 }
