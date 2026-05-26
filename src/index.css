@@ -100,7 +100,32 @@ Hot Collections && New Items && Top Sellers custom styles
     margin-bottom: 16px;
 }
 
+/* 
 
+Explore page custom styles
 
+*/
+
+.explore__list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.explore__item {
+    width: 25%;
+}
+
+@media (max-width: 1024px) {
+    .explore__item {
+        width: 50%;
+    }
+}
+
+@media (max-width: 600px) {
+    .explore__item {
+        width: 100%;
+    }
+}
 
 
