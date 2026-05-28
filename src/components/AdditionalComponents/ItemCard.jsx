@@ -1,14 +1,13 @@
-import React from 'react';
 import ItemCountdown from './ItemCountdown';
 import { Link } from 'react-router-dom';
 
 function ItemCard({ item }) {
   return (
-    <div className="newItemsCard" key={item.id} style={{ display: "block", backgroundSize: "cover" }}>
+    <div className="newItemsCard" style={{ display: "block", backgroundSize: "cover" }}>
         <div className="nft__item">
         <div className="author_list_pp">
             <Link
-            to="/author"
+            to={`/author/${item.authorId}`}
             data-bs-toggle="tooltip"
             data-bs-placement="top"
             title="Creator: Monica Lucas"
@@ -24,16 +23,16 @@ function ItemCard({ item }) {
             <div className="nft__item_buttons">
                 <button>Buy Now</button>
                 <div className="nft__item_share">
-                <h4>Share</h4>
-                <a href="" target="_blank" rel="noreferrer">
-                    <i className="fa fa-facebook fa-lg"></i>
-                </a>
-                <a href="" target="_blank" rel="noreferrer">
-                    <i className="fa fa-twitter fa-lg"></i>
-                </a>
-                <a href="">
-                    <i className="fa fa-envelope fa-lg"></i>
-                </a>
+                    <h4>Share</h4>
+                    <button>
+                        <i className="fa fa-facebook fa-lg"></i>
+                    </button>
+                    <button>
+                        <i className="fa fa-twitter fa-lg"></i>
+                    </button>
+                    <button>
+                        <i className="fa fa-envelope fa-lg"></i>
+                    </button>
                 </div>
             </div>
             </div>

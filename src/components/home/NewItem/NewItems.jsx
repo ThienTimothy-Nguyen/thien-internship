@@ -60,7 +60,7 @@ const NewItems = () => {
       <div className="slider-container">
         <Slider {...settings}>
           {newItemsArr.length > 0 ? newItemsArr.map((item) => 
-            <ItemCard item={item} />) : 
+            <ItemCard item={item} key={item.id} />) : 
             new Array(4).fill(0).map((_, index) => <NewItemsLoading key={index} />
           )}
         </Slider>
