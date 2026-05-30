@@ -3,10 +3,12 @@ import AuthorBanner from "../images/author_banner.jpg";
 import AuthorItems from "../components/author/AuthorItems";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
+import AuthorLoading from "../components/author/AuthorLoading";
+import AuthorItemsLoading from "../components/author/AuthorItemsLoading";
 
 const Author = () => {
   const { authorId } = useParams();
-  const [authorData, setAuthorData] = useState([]);
+  const [authorData, setAuthorData] = useState({});
   const [followers, setFollowers] = useState(0);
   const [isFollowed, setIsFollowed] = useState(false);
 
@@ -46,6 +48,7 @@ const Author = () => {
         <section aria-label="section">
           <div className="container">
             <div className="row">
+              {authorData.nftCollection ?
               <div className="col-md-12">
                 <div className="d_profile de-flex">
                   <div className="de-flex-col">
@@ -76,11 +79,12 @@ const Author = () => {
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> :
+              <AuthorLoading />}
 
               <div className="col-md-12">
                 <div className="de_tab tab_simple">
-                  {authorData.nftCollection && <AuthorItems authorData={authorData} />}
+                  {authorData.nftCollection ? <AuthorItems authorData={authorData} /> : <AuthorItemsLoading />}
                 </div>
               </div>
             </div>
