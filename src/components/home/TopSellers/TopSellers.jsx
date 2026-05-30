@@ -2,6 +2,12 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import TopSellersLoading from "./TopSellersLoading";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
+AOS.init({
+  duration: 1000,
+});
 
 const TopSellers = () => {
   const [topSellers, setTopSellers] = useState([])
@@ -27,9 +33,14 @@ const TopSellers = () => {
             </div>
           </div>
           <div className="col-md-12">
-            <ol className="author_list">
+            <ol 
+              className="author_list"
+              data-aos="fade-in"
+            >
               { topSellers.length >0 ?  topSellers.map((seller) => (
-                <li key={seller.id}>
+                <li 
+                  key={seller.id}
+                >
                   <div className="author_list_pp">
                     <Link to={`/author/${seller.authorId}`}>
                       <img
