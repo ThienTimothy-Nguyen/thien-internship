@@ -65,7 +65,7 @@ Hot Collections && New Items && Top Sellers custom styles
 
 .code_placeholder {
   width: 46%;
-  height: 14px;
+  height: 16px;
   background-color: #e0e0e0;
 }
 
@@ -128,4 +128,87 @@ Explore page custom styles
     }
 }
 
+/*
 
+Author page custom styles
+
+*/
+
+.img_placeholder__author {
+    background-color: #e0e0e0;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    position: relative;
+}
+
+.icon_placeholder__author {
+    bottom: 6px;
+    left: -4px;
+    position: absolute;
+}
+
+.title__skeleton--author {
+    width: 150px;
+    height: 22px;
+    background-color: #e0e0e0;
+}
+
+.tag__skeleton--author {
+    width: 100px;
+    height: 22px;
+    background-color: #e0e0e0;
+    margin: 4px 0;
+    margin-right: 4px;
+}
+
+.follower_container__skeleton {
+    display: flex;
+    align-items: center;
+}
+
+.btn-main__skeleton {
+    width: 120px;
+    height: 40px;
+}
+
+/* 
+
+Item Details page custom styles
+
+*/
+
+.nft_image__skeleton {
+    width: 50%;
+    height: 500px;
+    background-color: #e0e0e0;
+    border-radius: 8px;
+}
+
+.title__skeleton--item_detail {
+    width: 50%;
+    height: 32px;
+    background-color: #e0e0e0;
+    margin: 16px 0;
+}
+
+.para__skeleton {
+    width: 100%;
+    height: 80px;
+    background-color: #e0e0e0;
+    margin-bottom: 16px;
+}
+
+.name__skeleton--item_detail {
+    width: 100px;
+    height: 18px;
+    background-color: #e0e0e0;
+    margin-bottom: 4px;
+}
+
+@media (max-width: 768px) {
+    .nft_image__skeleton {
+        width: 100%;
+        height: 400px;
+    }
+}
